@@ -1,0 +1,46 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+double time, h, x, x_max, lenght, q_w, i, y, T2_n, m, k, n, x_max2;
+cin >> time >> h >> lenght;
+q_w = sqrt(10 / lenght);
+x_max = sqrt(lenght*lenght - (lenght - h)*(lenght - h));
+i = 0;
+T2_n = 3.141592*(sqrt(lenght / 10));
+cout << T2_n << " ";
+m = time / T2_n;
+n = 0;
+x_max2=x_max;
+for (int i1 = 0; i1 < m; i1++) {
+cout << " " << i1 << " ";
+k = (time - n * T2_n);
+cout << k << endl;
+if ((time - n * T2_n) < T2_n) {
+cout << endl;
+while (i < (time - n * T2_n) + 0.01) {
+x = x_max * cos(q_w * i);
+i += 0.01;
+y = lenght - (sqrt(lenght*lenght - x*x));
+cout << "x = " << x << ";" <<" y = "<< y << endl;
+};
+}
+else
+{
+while (i < T2_n + 0.01) {
+x = x_max * cos(q_w * i);
+i += 0.01;
+y = lenght - (sqrt(lenght*lenght - x*x));
+cout << "x = " << x << ";" <<" y = "<< y << endl;
+};
+x_max = x_max * (-1);
+i = 0;
+n += 1;
+};
+};
+y = lenght - (sqrt(lenght*lenght - x*x));
+cout << endl << "x = " << x << "; " << endl << "y = " << y <<";"<< endl;
+return 0;
+}
